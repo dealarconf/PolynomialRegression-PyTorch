@@ -31,10 +31,7 @@ The output of the function calls yielded two sets of data: one for training the 
 ![ Output plot from the function provided in the assignment instructions](images/Training_Validation_datasets.png)
 |:--:|
 | <b>Figure 1:</b> Output plot from the function provided in the assignment instructions. The polynomial plotted in blue corresponds to a $p(x) = \sum w_i x^i$ with the coefficients $\textbf{w} = [0,−5,2,1,0.05]$. Only values spanning from $x = −3$ up to $x = 3$ are shown|
+ \newline
 
-
-{% note %}
-
-**Note:** This is a note
-
-{% endnote %}
+> **About the bias flag**  
+> For the linear model function `torch.nn.Linear`, I set up the `bias` flag to `False` (as `True` would be the default value). This is important because generally speaking, we expect a linear model to have both parameters $\textbf{w}$, and $b$. But in our model, we produced a design matrix where the first column is filled with `1` values, so the resulting `w0` parameter will be used as the bias. In my model I therefore don’t use the $b$ parameter. It would only be required if the design matrix has in the first column the `x` values (the values elevated to the first power).
