@@ -3,7 +3,7 @@ Explore a PyTorch-based Polynomial Regression implementation, featuring data vis
 
 This project involves the development and evaluation of a Polynomial Regression model, implemented in PyTorch, on synthetic datasets. The aim is to estimate the parameters of a specific polynomial function given by 
 $$p(z) = 0.05z^4 + z^3 + 2z^2 - 5z = \sum _{i = 0}^4 \textbf{w}_iz^i$$
-which has been expressed as a dot-product between two vectors: $\textbf{w} = [0, −5, 2, 1, 0.05]^T$, and $\textbf{[1, z, z2, z3, z4]}$, so $p(z) = \textbf{w}^T\textbf{x}$.
+which has been expressed as a dot-product between two vectors: $\textbf{w} = [0, −5, 2, 1, 0.05]^T$, and $\textbf{x} = [1, z, z^2, z^3, z^4]$, so $p(z) = \textbf{w}^T\textbf{x}$.
 
 We define a synthetic dataset $D$, where each instance is an $(x, y)$ pair, and y is calculated from the polynomial function with an added noise $\epsilon$. The noise follows a normal distribution with zero mean and standard deviation of $0.5$.
 
