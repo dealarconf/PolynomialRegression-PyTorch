@@ -31,3 +31,10 @@ The output of the function calls yielded two sets of data: one for training the 
 ![ Output plot from the function provided in the assignment instructions](images/Training_Validation_datasets.png)
 |:--:|
 | <b>Figure 1:</b> Output plot from the function provided in the assignment instructions. The polynomial plotted in blue corresponds to a $p(x) = \sum w_i x^i$ with the coefficients $\textbf{w} = [0,−5,2,1,0.05]$. Only values spanning from $x = −3$ up to $x = 3$ are shown|
+
+
+{% note %}
+
+**Note:** This is a note
+
+{% endnote %}
