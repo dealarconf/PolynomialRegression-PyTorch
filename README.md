@@ -28,3 +28,6 @@ The parameters used to construct these datasets were carefully chosen to meet th
 * seed: For reproducibility and to ensure that the training and validation datasets were different yet deterministic, we used a seed of 0 for the training * dataset and 1 for the validation dataset.
 The output of the function calls yielded two sets of data: one for training the model and another for validating its performance. This step is fundamental to machine learning modeling as it helps prevent overfitting and ensures the model's ability to generalize to unseen data.
 
+![ Output plot from the function provided in the assignment instructions](images/Training_Validation_datasets.png)
+|:--:|
+| <b>Figure 1:</b> Output plot from the function provided in the assignment instructions. The polynomial plotted in blue corresponds to a $p(x) = \sum w_i x^i$ with the coefficients $\textbf{w} = [0,−5,2,1,0.05]$. Only values spanning from $x = −3$ up to $x = 3$ are shown|
