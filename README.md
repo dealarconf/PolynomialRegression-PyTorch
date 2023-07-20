@@ -7,31 +7,26 @@ which has been expressed as a dot-product between two vectors: $\textbf{w} = [0,
 
 We define a synthetic dataset $D$, where each instance is an $(x, y)$ pair, and y is calculated from the polynomial function with an added noise $\epsilon$. The noise follows a normal distribution with zero mean and standard deviation of $0.5$.
 
-As part of the project, we will generate visualizations to gain an intuitive understanding of the polynomial function and its properties. Furthermore, we will investigate the performance of our model with different configurations and understand how the noise affects the model's ability to estimate the parameters.
-
-This report presents the process, results, and learnings from the project in a detailed and systematic manner.
-
-![ Output plot from the function provided in the assignment instructions](images/Polynomial_plot.png)
+![Only values spanning from x = −3 up to x = 3 are shown in this polynomial plot](images/Polynomial_plot.png)
 |:--:|
-| <b>Figure 1:</b> Output plot from the function provided in the assignment instructions. The polynomial plotted in blue corresponds to a $p(x) = \sum w_i x^i$ with the coefficients $\textbf{w} = [0,−5,2,1,0.05]$. Only values spanning from $x = −3$ up to $x = 3$ are shown|
+| <b>Figure 1:</b> The polynomial plotted in blue corresponds to a $p(x) = \sum w_i x^i$ with the coefficients $\textbf{w} = [0,−5,2,1,0.05]$. Only values spanning from $x = −3$ up to $x = 3$ are shown|
 
 ## Generation of Training and Validation Datasets
 
-In this section, we have leveraged the create_dataset function to generate our training and validation datasets, which are essential for training and evaluating our machine learning model.
+In this section, we have leveraged the 'create_dataset' function to generate our training and validation datasets, which are essential for training and evaluating our machine learning model.
 
 The parameters used to construct these datasets were carefully chosen to meet the requirements of the problem domain. The following arguments were provided to the create_dataset function:
 
 * w: A list of coefficients, [0,-5,2,1,0.05], of the underlying polynomial function. These parameters were used to simulate the real-world function that we aim to estimate with our model.
 * z_range: A tuple, (-3, 3), specifying the range of the x-values. This range was chosen to match the span of the polynomial plot in Task 1, ensuring that our model is exposed to the complete variation of the function.
-* sample_size: The number of data points used for each of the training and validation datasets was set to 500. This number provides a balance between computational efficiency and model performance.
-* sigma: A noise factor of 0.5 was added to our data. This simulated the real-world scenarios where data often contains some degree of noise.
-* seed: For reproducibility and to ensure that the training and validation datasets were different yet deterministic, we used a seed of 0 for the training * dataset and 1 for the validation dataset.
+* sample_size: The number of data points used for each of the training and validation datasets was set to $500$. This number provides a balance between computational efficiency and model performance.
+* sigma: A noise factor of $0.5$ was added to our data. This simulated the real-world scenarios where data often contains some degree of noise.
+* seed: For reproducibility and to ensure that the training and validation datasets were different yet deterministic, we used a seed of '0' for the training * dataset and '1' for the validation dataset.
 The output of the function calls yielded two sets of data: one for training the model and another for validating its performance. This step is fundamental to machine learning modeling as it helps prevent overfitting and ensures the model's ability to generalize to unseen data.
 
-![ Output plot from the function provided in the assignment instructions](images/Training_Validation_datasets.png)
+![Training dataset and Validation dataset produced with create_dataset function](images/Training_Validation_datasets.png)
 |:--:|
-| <b>Figure 1:</b> Output plot from the function provided in the assignment instructions. The polynomial plotted in blue corresponds to a $p(x) = \sum w_i x^i$ with the coefficients $\textbf{w} = [0,−5,2,1,0.05]$. Only values spanning from $x = −3$ up to $x = 3$ are shown|
- \newline
+| <b>Figure 2:</b> Training dataset and Validation dataset produced with 'create_dataset' function. Each dataset consist of $500$ points. The plots show how the points deviates from the generator polynomial $p(x) = 0.05x^4 + x^3 + 2x^2 − 5x$ |
 
 > **About the bias flag**  
 > For the linear model function `torch.nn.Linear`, I set up the `bias` flag to `False` (as `True` would be the default value). This is important because generally speaking, we expect a linear model to have both parameters $\textbf{w}$, and $b$. But in our model, we produced a design matrix where the first column is filled with `1` values, so the resulting `w0` parameter will be used as the bias. In my model I therefore don’t use the $b$ parameter. It would only be required if the design matrix has in the first column the `x` values (the values elevated to the first power).
